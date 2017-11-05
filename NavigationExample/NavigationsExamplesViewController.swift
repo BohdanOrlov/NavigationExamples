@@ -9,6 +9,10 @@
 import UIKit
 
 class NavigationsExamplesViewController: UITableViewController {
+    public var nextViewControllerProvider: ((_ detailsText: String, _ didFinish: @escaping () -> Void) -> UIViewController)!
+    public var presenterProvider: (() -> ViewControllerPresenting)!
+    public var actionHandler: ActionHandling!
+    public var viewModel: EmptyViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,14 @@ class NavigationsExamplesViewController: UITableViewController {
             self.presentViewControllerFromStoryboard()
         } else if cell == self.segueCell {
             self.performSegue(withIdentifier: "detailsSegue", sender: nil)
+        } else if cell == self.injectedVCCell {
+            self.presentInjectedViewController()
+        } else if cell == self.injectedVCAndPresenterCell {
+            self.presentInjectedViewControllerViaPresenter()
+        } else if cell == self.actionHandlerCell {
+            self.handleAction()
+        } else if cell == self.viewModelAndScreenPresenterCell {
+            self.handleActionByViewModel()
         }
     }
 
@@ -39,6 +51,20 @@ class NavigationsExamplesViewController: UITableViewController {
             self?.dismiss(animated: true)
         }
         self.present(viewController, animated: true)
+    }
+
+    private func presentInjectedViewController() {
+        let viewController = self.nextViewControllerProvider("My details") { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        self.present(viewController, animated: true)
+    }
+
+    private func presentInjectedViewControllerViaPresenter() {
+        let viewController = self.nextViewControllerProvider("My details") { [weak self] in
+            self?.presenterProvider().dismiss(animated: true, completion: nil)
+        }
+        self.presenterProvider().present(viewController, animated: true, completion: nil)
     }
 
     private func presentViewControllerFromXib() {
@@ -59,6 +85,14 @@ class NavigationsExamplesViewController: UITableViewController {
         self.present(viewController, animated: true)
     }
 
+    private func handleAction() {
+        self.actionHandler.handleAction(for: "My details")
+    }
+
+    private func handleActionByViewModel() {
+        self.viewModel.handleAction(for: "My details")
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailsSegue" else { return }
         let viewController = segue.destination as! DetailsViewControllerFromIB
@@ -76,4 +110,8 @@ class NavigationsExamplesViewController: UITableViewController {
     @IBOutlet private var allocationFromXibCell: UITableViewCell!
     @IBOutlet private var allocationFromStoryboardCell: UITableViewCell!
     @IBOutlet private var segueCell: UITableViewCell!
+    @IBOutlet private var injectedVCCell: UITableViewCell!
+    @IBOutlet private var injectedVCAndPresenterCell: UITableViewCell!
+    @IBOutlet private var actionHandlerCell: UITableViewCell!
+    @IBOutlet private var viewModelAndScreenPresenterCell: UITableViewCell!
 }

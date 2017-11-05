@@ -9,28 +9,40 @@
 import XCTest
 @testable import NavigationExample
 
-class NavigationExampleTests: XCTestCase {
+class ViewControllerPresentingTest: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testWhenCellTapped_ThenDetailsPresented() {
+        // Given
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let examplesViewController = storyboard.instantiateViewController(withIdentifier: "NavigationsExamplesViewController") as! NavigationsExamplesViewController
+
+        examplesViewController.nextViewControllerProvider = { detailsText, didFinish in
+            return DetailsViewControllerToInject(detailsText: detailsText, didFinish: didFinish)
+
         }
+        let mockPresenter = MockViewControllerPresenter()
+        examplesViewController.presenterProvider = {
+            return mockPresenter
+        }
+        // When
+        examplesViewController.tableView(examplesViewController.tableView, didSelectRowAt: IndexPath(row: 1, section: 1))
+        // Then
+        let vc = mockPresenter.invokedPresentArguments.0
+        XCTAssertTrue(vc is DetailsViewControllerToInject)
     }
     
+}
+
+class MockViewControllerPresenter: ViewControllerPresenting {
+    public var invokedPresentArguments: (UIViewController, Bool, (() -> Void)?)!
+    public var invokedDismissArguments: (Bool, (() -> Void)?)!
+    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+        self.invokedPresentArguments = (viewControllerToPresent, flag, completion)
+        completion?()
+    }
+
+    func dismiss(animated flag: Bool, completion: (() -> Void)?) {
+        self.invokedDismissArguments = (flag, completion)
+        completion?()
+    }
 }
