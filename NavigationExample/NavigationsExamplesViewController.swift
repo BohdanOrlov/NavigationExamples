@@ -43,8 +43,13 @@ class NavigationsExamplesViewController: UITableViewController {
             self.handleAction()
         } else if cell == self.viewModelAndScreenPresenterCell {
             self.handleActionByViewModel()
-        }else if cell == self.presentWithNavigationBarCell {
+        } else if cell == self.presentWithNavigationBarCell {
             self.presentDetailsWithNavigationBar()
+        } else if cell == self.dismissAllAndPresentTwoCell {
+            // Allows to open another VC to check that dismiss works
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                self.dismissAllAndPresentTwo()
+            })
         }
     }
 
@@ -102,6 +107,34 @@ class NavigationsExamplesViewController: UITableViewController {
         self.presentWithNavigationBar(viewController, animated: true, completion: nil)
     }
 
+    private func dismissAllAndPresentTwo() {
+        let popAndPresent = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+            self?.presentTwoDetailsControllers()
+        }
+        if self.presentedViewController != nil {
+            self.dismiss(animated: true) {
+                popAndPresent()
+            }
+        } else {
+            popAndPresent()
+        }
+    }
+
+    private func presentTwoDetailsControllers() {
+        let viewController = self.nextViewControllerProvider("My details") { [weak self] in
+            self?.dismissRespectingNavigationBar(animated: true, completion: nil)
+        }
+        self.presentWithNavigationBar(viewController, animated: true, completion: {
+            [weak self] in
+            guard let sSelf = self else { return }
+            let viewController2 = sSelf.nextViewControllerProvider("My another details") { [weak self] in
+                self?.dismissRespectingNavigationBar(animated: true, completion: nil)
+            }
+            sSelf.presentWithNavigationBar(viewController2, animated: true, completion: nil)
+        })
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailsSegue" else { return }
         let viewController = segue.destination as! DetailsViewControllerFromIB
@@ -124,4 +157,5 @@ class NavigationsExamplesViewController: UITableViewController {
     @IBOutlet private var actionHandlerCell: UITableViewCell!
     @IBOutlet private var viewModelAndScreenPresenterCell: UITableViewCell!
     @IBOutlet private var presentWithNavigationBarCell: UITableViewCell!
+    @IBOutlet private var dismissAllAndPresentTwoCell: UITableViewCell!
 }

@@ -207,6 +207,27 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Centralized navigation" id="2Fc-m7-cRP">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="fz0-1a-XlT" style="IBUITableViewCellStyleDefault" id="roy-av-Usj">
+                                        <rect key="frame" x="0.0" y="580" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="roy-av-Usj" id="WaS-Wh-pv3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Handle a &quot;push&quot; and present two VCs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fz0-1a-XlT">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="xc1-NF-6OB" id="R4o-ls-gRK"/>
@@ -218,6 +239,7 @@
                         <outlet property="actionHandlerCell" destination="JsJ-2z-t6f" id="Syf-4M-FAl"/>
                         <outlet property="allocationFromStoryboardCell" destination="vkR-0K-4Ex" id="VjU-Qg-iX4"/>
                         <outlet property="allocationFromXibCell" destination="c05-TB-8Ic" id="o84-PA-u2Q"/>
+                        <outlet property="dismissAllAndPresentTwoCell" destination="roy-av-Usj" id="VHQ-qO-ica"/>
                         <outlet property="injectedVCAndPresenterCell" destination="VSh-rf-hFF" id="J41-wF-VeG"/>
                         <outlet property="injectedVCCell" destination="pbz-qs-ZHY" id="RHe-Ww-cGK"/>
                         <outlet property="manualAllocationCell" destination="HJo-cK-9yH" id="fQE-xO-rx4"/>
