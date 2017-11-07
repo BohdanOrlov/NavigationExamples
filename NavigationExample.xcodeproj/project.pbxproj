@@ -24,6 +24,7 @@
 		D26A3DAE1FAFB07100FF4107 /* EmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DAD1FAFB07100FF4107 /* EmptyViewModel.swift */; };
 		D26A3DB01FAFB4C600FF4107 /* ScreenPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DAF1FAFB4C600FF4107 /* ScreenPresenting.swift */; };
 		D26A3DB21FAFBBE000FF4107 /* ScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DB11FAFBBE000FF4107 /* ScreenPresenter.swift */; };
+		D2DBC9AB1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D26A3DAD1FAFB07100FF4107 /* EmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewModel.swift; sourceTree = "<group>"; };
 		D26A3DAF1FAFB4C600FF4107 /* ScreenPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPresenting.swift; sourceTree = "<group>"; };
 		D26A3DB11FAFBBE000FF4107 /* ScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPresenter.swift; sourceTree = "<group>"; };
+		D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentWithNavigationBar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				D2333C641FAF484D00217D43 /* Main.storyboard */,
 				D26A3DAC1FAFAEE500FF4107 /* Action Handling */,
 				D26A3DB31FAFBC9C00FF4107 /* ViewModel With ScreenPresenter */,
+				D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */,
 				D2333C671FAF484D00217D43 /* Assets.xcassets */,
 				D2333C691FAF484D00217D43 /* LaunchScreen.storyboard */,
 				D2333C6C1FAF484D00217D43 /* Info.plist */,
@@ -278,6 +281,7 @@
 				D2333C841FAF543A00217D43 /* DetailsViewControllerFromIB.swift in Sources */,
 				D26A3DAB1FAFA72000FF4107 /* ActionHandler.swift in Sources */,
 				D26A3DAE1FAFB07100FF4107 /* EmptyViewModel.swift in Sources */,
+				D2DBC9AB1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift in Sources */,
 				D2333C951FAF9EBF00217D43 /* ActionHandling.swift in Sources */,
 				D2333C8E1FAF662C00217D43 /* ViewControllerPresenting.swift in Sources */,
 				D26A3DB01FAFB4C600FF4107 /* ScreenPresenting.swift in Sources */,

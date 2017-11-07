@@ -43,6 +43,8 @@ class NavigationsExamplesViewController: UITableViewController {
             self.handleAction()
         } else if cell == self.viewModelAndScreenPresenterCell {
             self.handleActionByViewModel()
+        }else if cell == self.presentWithNavigationBarCell {
+            self.presentDetailsWithNavigationBar()
         }
     }
 
@@ -93,6 +95,13 @@ class NavigationsExamplesViewController: UITableViewController {
         self.viewModel.handleAction(for: "My details")
     }
 
+    private func presentDetailsWithNavigationBar() {
+        let viewController = self.nextViewControllerProvider("My details") { [weak self] in
+            self?.dismissRespectingNavigationBar(animated: true, completion: nil)
+        }
+        self.presentWithNavigationBar(viewController, animated: true, completion: nil)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailsSegue" else { return }
         let viewController = segue.destination as! DetailsViewControllerFromIB
@@ -114,4 +123,5 @@ class NavigationsExamplesViewController: UITableViewController {
     @IBOutlet private var injectedVCAndPresenterCell: UITableViewCell!
     @IBOutlet private var actionHandlerCell: UITableViewCell!
     @IBOutlet private var viewModelAndScreenPresenterCell: UITableViewCell!
+    @IBOutlet private var presentWithNavigationBarCell: UITableViewCell!
 }
