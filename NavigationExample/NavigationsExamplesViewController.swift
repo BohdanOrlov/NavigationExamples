@@ -129,6 +129,8 @@ class NavigationsExamplesViewController: UITableViewController {
             [weak self] in
             guard let sSelf = self else { return }
             let viewController2 = sSelf.nextViewControllerProvider("My another details") { [weak self] in
+                guard let sSelf = self else { return }
+                Navigator(window: UIApplication.shared.delegate?.window!).canPresent(screens: [])
                 self?.dismissRespectingNavigationBar(animated: true, completion: nil)
             }
             sSelf.presentWithNavigationBar(viewController2, animated: true, completion: nil)
