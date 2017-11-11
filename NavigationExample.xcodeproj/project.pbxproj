@@ -24,8 +24,8 @@
 		D26A3DAE1FAFB07100FF4107 /* EmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DAD1FAFB07100FF4107 /* EmptyViewModel.swift */; };
 		D26A3DB01FAFB4C600FF4107 /* ScreenPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DAF1FAFB4C600FF4107 /* ScreenPresenting.swift */; };
 		D26A3DB21FAFBBE000FF4107 /* ScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DB11FAFBBE000FF4107 /* ScreenPresenter.swift */; };
+		D26A3DBA1FB745F300FF4107 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A3DB91FB745F300FF4107 /* Navigator.swift */; };
 		D2DBC9AB1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */; };
-		D2DBC9B01FB31880003187BD /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DBC9AF1FB31880003187BD /* Navigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 		D26A3DAD1FAFB07100FF4107 /* EmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewModel.swift; sourceTree = "<group>"; };
 		D26A3DAF1FAFB4C600FF4107 /* ScreenPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPresenting.swift; sourceTree = "<group>"; };
 		D26A3DB11FAFBBE000FF4107 /* ScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPresenter.swift; sourceTree = "<group>"; };
+		D26A3DB91FB745F300FF4107 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentWithNavigationBar.swift"; sourceTree = "<group>"; };
-		D2DBC9AF1FB31880003187BD /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,15 +104,12 @@
 			children = (
 				D2333C601FAF484D00217D43 /* AppDelegate.swift */,
 				D2333C801FAF4B7500217D43 /* NavigationsExamplesViewController.swift */,
-				D2333C861FAF565D00217D43 /* Manuall Allocation */,
-				D2333C871FAF566A00217D43 /* Allocation From Interface builder */,
-				D2333C8C1FAF653F00217D43 /* Injection of a VC */,
-				D2333C8F1FAF686F00217D43 /* ViewControllerPresenting */,
 				D2333C641FAF484D00217D43 /* Main.storyboard */,
-				D26A3DAC1FAFAEE500FF4107 /* Action Handling */,
-				D26A3DB31FAFBC9C00FF4107 /* ViewModel With ScreenPresenter */,
-				D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */,
-				D2DBC9AF1FB31880003187BD /* Navigator.swift */,
+				D26A3DB41FB744C000FF4107 /* VC to VC presentation */,
+				D26A3DB51FB744E400FF4107 /* VC to VC with DI and Tests */,
+				D26A3DB71FB7453E00FF4107 /* Presentation decision extraction */,
+				D26A3DB61FB7452800FF4107 /* DSL example */,
+				D26A3DB81FB745B000FF4107 /* Centralized navigation */,
 				D2333C671FAF484D00217D43 /* Assets.xcassets */,
 				D2333C691FAF484D00217D43 /* LaunchScreen.storyboard */,
 				D2333C6C1FAF484D00217D43 /* Info.plist */,
@@ -173,6 +170,49 @@
 				D26A3DB11FAFBBE000FF4107 /* ScreenPresenter.swift */,
 			);
 			path = "ViewModel With ScreenPresenter";
+			sourceTree = "<group>";
+		};
+		D26A3DB41FB744C000FF4107 /* VC to VC presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D2333C861FAF565D00217D43 /* Manuall Allocation */,
+				D2333C871FAF566A00217D43 /* Allocation From Interface builder */,
+			);
+			path = "VC to VC presentation";
+			sourceTree = "<group>";
+		};
+		D26A3DB51FB744E400FF4107 /* VC to VC with DI and Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D2333C8C1FAF653F00217D43 /* Injection of a VC */,
+				D2333C8F1FAF686F00217D43 /* ViewControllerPresenting */,
+			);
+			path = "VC to VC with DI and Tests";
+			sourceTree = "<group>";
+		};
+		D26A3DB61FB7452800FF4107 /* DSL example */ = {
+			isa = PBXGroup;
+			children = (
+				D2DBC9AA1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift */,
+			);
+			path = "DSL example";
+			sourceTree = "<group>";
+		};
+		D26A3DB71FB7453E00FF4107 /* Presentation decision extraction */ = {
+			isa = PBXGroup;
+			children = (
+				D26A3DAC1FAFAEE500FF4107 /* Action Handling */,
+				D26A3DB31FAFBC9C00FF4107 /* ViewModel With ScreenPresenter */,
+			);
+			path = "Presentation decision extraction";
+			sourceTree = "<group>";
+		};
+		D26A3DB81FB745B000FF4107 /* Centralized navigation */ = {
+			isa = PBXGroup;
+			children = (
+				D26A3DB91FB745F300FF4107 /* Navigator.swift */,
+			);
+			path = "Centralized navigation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +323,7 @@
 				D2333C631FAF484D00217D43 /* DetailsViewController.swift in Sources */,
 				D2333C841FAF543A00217D43 /* DetailsViewControllerFromIB.swift in Sources */,
 				D26A3DAB1FAFA72000FF4107 /* ActionHandler.swift in Sources */,
-				D2DBC9B01FB31880003187BD /* Navigator.swift in Sources */,
+				D26A3DBA1FB745F300FF4107 /* Navigator.swift in Sources */,
 				D26A3DAE1FAFB07100FF4107 /* EmptyViewModel.swift in Sources */,
 				D2DBC9AB1FB1BDF2003187BD /* UIViewController+PresentWithNavigationBar.swift in Sources */,
 				D2333C951FAF9EBF00217D43 /* ActionHandling.swift in Sources */,

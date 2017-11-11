@@ -1,5 +1,5 @@
 //
-//  DetailsViewControllerToInject.swift
+//  ViewController.swift
 //  NavigationExample
 //
 //  Created by Bohdan Orlov on 05/11/2017.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class DetailsViewControllerToInject: UIViewController {
+class DetailsViewController: UIViewController {
 
     init(detailsText: String, didFinish: @escaping () -> Void) {
         self.detailsText = detailsText
         self.didFinish = didFinish
         super.init(nibName: nil, bundle: nil)
     }
+    private let detailsText: String
+    private let didFinish: () -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +46,7 @@ class DetailsViewControllerToInject: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    private let detailsText: String
-    private let didFinish: () -> Void
+
     private let label: UILabel = {
         let label = UILabel();
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,3 +61,4 @@ class DetailsViewControllerToInject: UIViewController {
         return button
     }()
 }
+

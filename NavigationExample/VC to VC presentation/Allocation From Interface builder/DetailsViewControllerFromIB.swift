@@ -9,7 +9,6 @@
 import UIKit
 
 class DetailsViewControllerFromIB: UIViewController {
-
     public var detailsText: String?
     public var didFinish: (() -> Void)?
     override func viewDidLoad() {

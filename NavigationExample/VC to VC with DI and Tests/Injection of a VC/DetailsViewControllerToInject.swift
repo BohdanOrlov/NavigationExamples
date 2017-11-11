@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailsViewControllerToInject.swift
 //  NavigationExample
 //
 //  Created by Bohdan Orlov on 05/11/2017.
@@ -8,9 +8,12 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+typealias Completion = () -> Void
 
-    init(detailsText: String, didFinish: @escaping () -> Void) {
+class DetailsViewControllerToInject: UIViewController {
+
+
+    init(detailsText: String, didFinish: @escaping Completion) {
         self.detailsText = detailsText
         self.didFinish = didFinish
         super.init(nibName: nil, bundle: nil)
@@ -60,4 +63,3 @@ class DetailsViewController: UIViewController {
         return button
     }()
 }
-

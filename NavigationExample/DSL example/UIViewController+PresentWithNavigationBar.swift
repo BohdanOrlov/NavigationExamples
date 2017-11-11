@@ -7,11 +7,15 @@
 //
 
 import UIKit
+protocol ViewControllerPresentingWithNavBar: ViewControllerPresenting {
+    func presentWithNavigationBar(_ controller: UIViewController, animated: Bool, completion: (() -> Void)?)
+    func dismissRespectingNavigationBar(animated: Bool, completion: (() -> Void)?)
+}
 
-extension UIViewController {
+extension UIViewController: ViewControllerPresentingWithNavBar {
 
     public func presentWithNavigationBar(_ controller: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             navigationController.pushViewController(controller, animated: animated, completion: completion)
         } else {
             let navigationController = UINavigationController(rootViewController: controller)

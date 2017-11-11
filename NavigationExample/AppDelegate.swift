@@ -23,10 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let presenterProvider = { [unowned examplesViewController] in
             return examplesViewController
         }
+        let presenterWithNavBarProvider = { [unowned examplesViewController] in
+            return examplesViewController
+        }
         examplesViewController.nextViewControllerProvider = detailsViewControllerProvider
         examplesViewController.presenterProvider = presenterProvider
+        examplesViewController.presenterWithNavBarProvider = presenterWithNavBarProvider
         examplesViewController.actionHandler = ActionHandler(presenterProvider: presenterProvider, detailsControllerProvider: detailsViewControllerProvider)
         examplesViewController.viewModel = EmptyViewModel(screenPresenter: ScreenPresenter(presenterProvider: presenterProvider, detailsControllerProvider: detailsViewControllerProvider))
+        examplesViewController.navigator = Navigator(navigationController: rootViewController, controllerForDetailsProvider: detailsViewControllerProvider)
         return true
     }
 
